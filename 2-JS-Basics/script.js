@@ -16,6 +16,7 @@ console.log(fullAge);
 */
 
 // Lecture: variables two 
+/*
 var name = 'John';
 var age = 26;
 
@@ -41,3 +42,25 @@ var lastName = prompt('What is the last name?');
 console.log(lastName);
 
 alert(name + ' is a ' + age + ' years old ' + job + '. Is he married? ' + isMarried + '.');
+*/
+
+// Lecture: operators
+var now = 2016;
+var birthYear = now - 26;
+birthYear = now - 26 * 2;
+// 2016 - 52 = 1964
+
+console.log(birthYear);
+
+var ageJohn = 30;
+var ageMark = 30;
+
+ageJohn  = ageMark = (3 + 5) * 4 - 6;
+// ageJohn = ageMark = 26;
+
+ageJohn++;
+ageMark *= 2;
+
+console.log(ageJohn);
+console.log(ageMark);
+
