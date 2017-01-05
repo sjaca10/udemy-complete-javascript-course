@@ -67,6 +67,7 @@ console.log(ageMark);
 */
 
 // Lecture if/else statements
+/*
 var name = 'John';
 var age = 26;
 var isMarried = 'yes';
@@ -94,4 +95,33 @@ if (23 == "23") { // true becase JS realize type coertion on the fly
 
 if (23 === "23") {
     console.log('Something else to print...');
+}
+*/
+
+// Lecture: boolean logic and switch
+var age = 20;
+
+if (age < 20) {
+    console.log('Is a teenager');
+} else if (age >= 20 && age <= 30) {
+    console.log('Is a young man');
+} else {
+    console.log('Is a man');
+}
+
+var job = prompt('What do you do?');
+
+switch (job) {
+    case 'teacher':
+        console.log('Is a teacher');
+        break;
+    case 'driver':
+        console.log('Is a driver');
+        break;
+    case 'cop':
+        console.log('is a cop');
+        break;
+    default:
+        console.log('Is something else');
+        break;
 }
