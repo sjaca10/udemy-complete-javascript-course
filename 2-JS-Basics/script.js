@@ -146,6 +146,7 @@ the && operator to take the decision. If you can't solve this one, just
 watch the solution, it's no problem.
 */
 
+/*
 function generateHeight() {
     return Math.floor((Math.random() * 200) + 1);
 }
@@ -193,4 +194,35 @@ if (friend1Score > friend2Score && friend1Score > friend3Score) {
 } else {
     console.log('It is a draw');
 }
+*/
 
+// Lecture: Functions
+
+function calculateAge(yearOfBirth) {
+    var age = 2016 - yearOfBirth;
+    return age;
+}
+
+var ageJohn = calculateAge(1990);
+var ageMike = calculateAge(1969);
+var ageMary = calculateAge(1948);
+
+console.log(ageJohn);
+console.log(ageMike);
+console.log(ageMary);
+
+
+function yearsUntilRetirement(name, yearOfBirth) {
+    var age = calculateAge(yearOfBirth);
+    var retirement = 65 - age;
+    
+    if (retirement >= 0) {
+        console.log(name + ' retires in ' + retirement + ' years.');
+    } else {
+        console.log(name + ' is already retired.');
+    }
+}
+
+yearsUntilRetirement('John', 1990);
+yearsUntilRetirement('Mike', 1969);
+yearsUntilRetirement('Mary', 1948);
