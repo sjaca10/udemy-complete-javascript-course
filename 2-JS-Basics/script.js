@@ -99,6 +99,7 @@ if (23 === "23") {
 */
 
 // Lecture: boolean logic and switch
+/*
 var age = 20;
 
 if (age < 20) {
@@ -125,3 +126,71 @@ switch (job) {
         console.log('Is something else');
         break;
 }
+*/
+
+// CODING CHALLENGE 1
+/*
+John and a friend invented a simple game where the player with the highest
+value of his height (in centimeters) plus five times his age wins
+(what a silly game).
+
+1. Create variables for the heights and ages of two friends and assign
+them some values
+2. Calculate their scores
+3. Decide who wins and print the winner to the console. Include the score
+in the string that you output to the console. Don't forget that there can be
+a draw (both players with the same score).
+
+4. EXTRA: Add a third player and now decide who wins. Hint: you will need
+the && operator to take the decision. If you can't solve this one, just
+watch the solution, it's no problem.
+*/
+
+function generateHeight() {
+    return Math.floor((Math.random() * 200) + 1);
+}
+
+function generateAge() {
+    return Math.floor((Math.random() * 100) + 1);
+}
+
+var friend1Height = generateHeight();
+var friend1Age = generateAge();
+
+var friend2Height = generateHeight();
+var friend2Age = generateAge();
+
+var friend3Height = generateHeight();
+var friend3Age = generateAge();
+
+var friend1Score = friend1Height + friend1Age * 5;
+var friend2Score = friend2Height + friend2Age * 5;
+var friend3Score = friend3Height + friend3Age * 5;
+
+console.log('Friend 1');
+console.log('Height: ' + friend1Height);
+console.log('Age: ' + friend1Age);
+
+console.log('Friend 2');
+console.log('Height: ' + friend2Height);
+console.log('Age: ' + friend2Age);
+
+console.log('Friend 3');
+console.log('Height: ' + friend3Height);
+console.log('Age: ' + friend3Age);
+
+console.log('Scores');
+console.log('Friend 1: ' + friend1Score);
+console.log('Friend 2: ' + friend2Score);
+console.log('Friend 3: ' + friend3Score);
+
+if (friend1Score > friend2Score && friend1Score > friend3Score) {
+    console.log('Friend 1 wins.');
+} else if (friend2Score > friend1Score && friend2Score > friend3Score) {
+    console.log('Friend 2 wins.');
+} else if (friend3Score > friend1Score && friend3Score > friend2Score) {
+    console.log('Friend 3 wins.');
+} else {
+    console.log('It is a draw');
+}
+
