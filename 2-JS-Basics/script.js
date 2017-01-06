@@ -197,7 +197,7 @@ if (friend1Score > friend2Score && friend1Score > friend3Score) {
 */
 
 // Lecture: Functions
-
+/*
 function calculateAge(yearOfBirth) {
     var age = 2016 - yearOfBirth;
     return age;
@@ -226,3 +226,23 @@ function yearsUntilRetirement(name, yearOfBirth) {
 yearsUntilRetirement('John', 1990);
 yearsUntilRetirement('Mike', 1969);
 yearsUntilRetirement('Mary', 1948);
+*/
+
+// Lecture: statements and expressions
+
+function someFun(par) { // Function statement (performs and action)
+    // code
+}
+
+var someFun = function(par) { // Function expression (produce a value)
+    // code
+}
+
+// Expressions (produces and output)
+3 + 4;
+var x = 3;
+
+// Statements (performs an action and not produce an inmediate value)
+if (x === 5) {
+    // do something
+}
