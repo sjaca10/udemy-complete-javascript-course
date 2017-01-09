@@ -296,7 +296,7 @@ if (john.indexOf('teacher') === -1) {
 /////////////////////////////////////
 // Lecture: objects and properties //
 /////////////////////////////////////
-
+/*
 var john = {
     name: 'John',
     lastName: 'Smith',
@@ -325,3 +325,68 @@ jane['job'] = 'Retired';
 jane['isMarried'] = true;
 
 console.log(jane);
+*/
+
+//////////////////////////////////
+// Lecture: objects and methods //
+//////////////////////////////////
+
+// Version 1 of John
+/*var john = {
+    name: 'John',
+    lastName: 'Smith',
+    yearOfBirth: 1990,
+    job: 'Teacher',
+    isMarried: false,
+    family: [
+        'Jane',
+        'Mark',
+        'Bob',
+    ],
+    calculateAge: function() {
+        return 2017 - this.yearOfBirth;
+    },
+};
+
+console.log(john);
+console.log(john.family);
+console.log(john.family[2]);
+console.log(john.calculateAge());
+
+var age = john.calculateAge();
+
+john.age = age;
+
+console.log(john);*/
+
+
+// Version 2 of John
+var john = {
+    name: 'John',
+    lastName: 'Smith',
+    yearOfBirth: 1990,
+    job: 'Teacher',
+    isMarried: false,
+    family: [
+        'Jane',
+        'Mark',
+        'Bob',
+    ],
+    calculateAge: function() {
+        this.age = 2017 - this.yearOfBirth;
+    },
+};
+
+john.calculateAge();
+console.log(john);
+
+var mike = {
+    name: 'Mike',
+    yearOfBirth: 1990,
+    calculateAge: function() {
+        this.age = 2017 - this.yearOfBirth;
+    },
+};
+
+mike.calculateAge();
+console.log(mike);
