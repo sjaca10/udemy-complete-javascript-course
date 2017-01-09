@@ -330,9 +330,9 @@ console.log(jane);
 //////////////////////////////////
 // Lecture: objects and methods //
 //////////////////////////////////
-
+/*
 // Version 1 of John
-/*var john = {
+var john = {
     name: 'John',
     lastName: 'Smith',
     yearOfBirth: 1990,
@@ -357,7 +357,7 @@ var age = john.calculateAge();
 
 john.age = age;
 
-console.log(john);*/
+console.log(john);
 
 
 // Version 2 of John
@@ -390,3 +390,63 @@ var mike = {
 
 mike.calculateAge();
 console.log(mike);
+*/
+
+//////////////////////////////////
+// Lecture: loops and iteration //
+//////////////////////////////////
+
+for (var i = 0; i < 10; i++) {
+    console.log(i);
+}
+
+/*
+0, true, print 0, update 0 to 1
+1, true, print 1, update 1 to 2
+...
+9, true, print 9, update 9 to 10
+10, false, end loop
+*/
+
+var names = [
+    'John',
+    'Jane',
+    'Mary',
+    'Mark',
+    'Bob',
+];
+
+// For loops //
+
+for (var i = 0; i < names.length; i++) {
+    console.log(names[i]);
+}
+
+console.log('Reverse')
+
+for (var i = names.length - 1; i > -1; i --) {
+    console.log(names[i]);
+}
+
+// While loops //
+var i = 0;
+while(i < names.length) {
+    console.log(names[i]);
+    i++;
+}
+
+for (var i = 0; i <= 5; i++) {
+    console.log(i);
+    
+    if (i === 3) {
+        break;
+    }
+}
+
+for (var i = 0; i <= 5; i++) {
+    if (i === 3) {
+        continue;
+    }
+    
+    console.log(i);
+}
