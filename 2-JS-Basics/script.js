@@ -1,6 +1,8 @@
 // console.log('Hello world!');
 
-// Lecture: variables
+////////////////////////
+// Lecture: variables //
+////////////////////////
 /*
 var name = 'John'; 
 console.log(name);
@@ -15,7 +17,9 @@ var fullAge = true;
 console.log(fullAge);
 */
 
-// Lecture: variables two 
+////////////////////////////
+// Lecture: variables two //
+////////////////////////////
 /*
 var name = 'John';
 var age = 26;
@@ -44,7 +48,9 @@ console.log(lastName);
 alert(name + ' is a ' + age + ' years old ' + job + '. Is he married? ' + isMarried + '.');
 */
 
-// Lecture: operators
+////////////////////////
+// Lecture: operators //
+////////////////////////
 /*
 var now = 2016;
 var birthYear = now - 26;
@@ -66,7 +72,9 @@ console.log(ageJohn);
 console.log(ageMark);
 */
 
-// Lecture if/else statements
+////////////////////////////////
+// Lecture if/else statements //
+////////////////////////////////
 /*
 var name = 'John';
 var age = 26;
@@ -98,7 +106,9 @@ if (23 === "23") {
 }
 */
 
-// Lecture: boolean logic and switch
+///////////////////////////////////////
+// Lecture: boolean logic and switch //
+///////////////////////////////////////
 /*
 var age = 20;
 
@@ -128,7 +138,9 @@ switch (job) {
 }
 */
 
-// CODING CHALLENGE 1
+////////////////////////
+// CODING CHALLENGE 1 //
+////////////////////////
 /*
 John and a friend invented a simple game where the player with the highest
 value of his height (in centimeters) plus five times his age wins
@@ -196,7 +208,9 @@ if (friend1Score > friend2Score && friend1Score > friend3Score) {
 }
 */
 
-// Lecture: Functions
+////////////////////////
+// Lecture: Functions //
+////////////////////////
 /*
 function calculateAge(yearOfBirth) {
     var age = 2016 - yearOfBirth;
@@ -228,8 +242,10 @@ yearsUntilRetirement('Mike', 1969);
 yearsUntilRetirement('Mary', 1948);
 */
 
-// Lecture: statements and expressions
-
+/////////////////////////////////////////
+// Lecture: statements and expressions //
+/////////////////////////////////////////
+/*
 function someFun(par) { // Function statement (performs and action)
     // code
 }
@@ -245,4 +261,33 @@ var x = 3;
 // Statements (performs an action and not produce an inmediate value)
 if (x === 5) {
     // do something
+}
+*/
+
+/////////////////////
+// Lecture: Arrays //
+/////////////////////
+
+var names = ['John', 'Jane', 'Mark'];
+var years = new Array(1990, 1969, 1948);
+
+console.log(names[2]);
+
+names[1] = 'Ben';
+console.log(names);
+
+var john = ['John', 'Smith', 1990, 'Teacher', false];
+
+john.push('blue'); // Add element at the end of array
+john.unshift('Mr.'); // Add element at the beginning of the array
+
+john.pop(); // Delete last element of the array
+john.shift(); // Delete first element of the array
+
+console.log(john.indexOf('Smith'));
+
+console.log(john);
+
+if (john.indexOf('teacher') === -1) {
+    console.log('John is not a teacher');
 }
