@@ -43,7 +43,7 @@ console.log(mark.lastName);
 // Object.create Build and object that inherits directly from the one that
 // we passed into the first argument, helps to build complex inheritance structures
 // because it allows to directly specifiy which object should be a prototype
-
+/*
 // First define an object (proto) with the function
 var personProto = {
     calculateAge: function() {
@@ -62,3 +62,41 @@ var jane = Object.create(personProto, {
     yearOfBirth: { value: 1969, },
     job: { value: 'Designer', },
 });
+*/
+
+// Primitives vs objects
+
+// Primitives (every primitive variable holds its own value)
+var a = 23;
+var b = a;
+a = 46;
+console.log(a);
+console.log(b);
+
+// Objects (every object is a reference to the object in the memory)
+var obj1 = {
+    name: 'John',
+    age: 26,
+};
+
+var obj2 = obj1;
+obj1.age = 30;
+console.log(obj1);
+console.log(obj2);
+
+// Functions (same behaviour, the primitive passed to a function it is not changed
+// by the function but the object it is changed)
+var age = 27;
+var obj1 = {
+    name: 'Jonas',
+    city: 'Lisbon',
+};
+
+function change(a, b) {
+    a = 30;
+    b.city = 'San Francisco';
+}
+
+change(age, obj1);
+console.log(age);
+console.log(obj1);
