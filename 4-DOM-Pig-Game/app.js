@@ -10,7 +10,7 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game.
 */
 
-var scores, roundScore, activePlayer, gamePlaying, previousDice, scoreToWin;
+var scores, roundScore, activePlayer, gamePlaying, previousDice, scoreToWin, shotsQueue;
 
 init();
 
@@ -26,20 +26,27 @@ init();
 document.querySelector('.btn-roll').addEventListener('click', function() {
     if (gamePlaying) {
         // 1. Random number
-        var dice = Math.floor(Math.random() * 6) + 1;
+        var dice0 = Math.floor(Math.random() * 6) + 1;
+        var dice1 = Math.floor(Math.random() * 6) + 1;
 
         // Add new roll, delete three roll before
-        shotsQueue.shift();
-        shotsQueue.push(dice);
+        // shotsQueue.shift();
+        // shotsQueue.push(dice);
 
         // 2. Display the result
-        var diceDOM = document.querySelector('.dice');
-        diceDOM.style.display = 'block';
-        diceDOM.src = 'dice-' + dice + '.png';
+        var diceDOM0 = document.getElementById('dice-0');
+        var diceDOM1 = document.getElementById('dice-1');
+
+        diceDOM0.style.display = 'block';
+        diceDOM0.src = 'dice-' + dice0 + '.png';
+
+        diceDOM1.style.display = 'block';
+        diceDOM1.src = 'dice-' + dice1 + '.png';
 
         // 3. Update the round score IF the rolled number was NOT a 1
         // If the previos and actual role are 6s then lose ENTIRE score
-        if (shotsQueue[0] === 6 && shotsQueue[1] === 6) {
+        // if (shotsQueue[0] === 6 && shotsQueue[1] === 6) {
+        if (dice0 === 6 && dice1 === 6) {
             // ENTIRE score lost
             scores[activePlayer] = 0;
 
@@ -48,9 +55,9 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
             // Next player
             nextPlayer();
-        } else if (dice > 1) {
+        } else if (dice0 > 1 && dice1 > 1) {
             // Add score
-            roundScore += dice;
+            roundScore += dice0 + dice1;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
         } else {
             // Next player
@@ -70,9 +77,11 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
         // Check if player won the game
         if (scores[activePlayer] >= scoreToWin) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
-            document.querySelector('.dice').style.display = 'none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('active');
+
+            document.getElementById('dice-0').style.display = 'none';
+            document.getElementById('dice-1').style.display = 'none';
 
             gamePlaying = false;
         } else {
@@ -94,7 +103,8 @@ function init() {
     scoreToWin = document.getElementById('score-to-win').value;
 
     // Changing CSS through style property
-    document.querySelector('.dice').style.display = 'none';
+    document.getElementById('dice-0').style.display = 'none';
+    document.getElementById('dice-1').style.display = 'none';
 
     document.getElementById('score-0').textContent = '0';
     document.getElementById('score-1').textContent = '0';
@@ -128,7 +138,8 @@ function nextPlayer() {
     // document.querySelector('.player-0-panel').classList.remove('active');
     // document.querySelector('.player-1-panel').classList.add('active');
 
-    document.querySelector('.dice').style.display = 'none';
+    document.getElementById('dice-0').style.display = 'none';
+    document.getElementById('dice-1').style.display = 'none';
 }
 
 //////////////////////
