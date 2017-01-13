@@ -1,4 +1,5 @@
-// Function constructor
+// Function constructor The newly created object inherits from the constructor's
+// prototype property
 
 // Old repetitive style object
 /*
@@ -8,7 +9,7 @@ var john = {
     job: 'Teacher',
 };
 */
-
+/*
 // Pattern: Function Constructor
 var Person = function(name, yearOfBirth, job) {
     this.name = name;
@@ -37,3 +38,27 @@ mark.calculateAge();
 console.log(john.lastName);
 console.log(jane.lastName);
 console.log(mark.lastName);
+*/
+
+// Object.create Build and object that inherits directly from the one that
+// we passed into the first argument, helps to build complex inheritance structures
+// because it allows to directly specifiy which object should be a prototype
+
+// First define an object (proto) with the function
+var personProto = {
+    calculateAge: function() {
+        console.log(new Date().getFullYear() - this.yearOfBirth);
+    },
+}
+
+// Then use Object.create method and set as param the previos object defined (proto)
+var john = Object.create(personProto);
+john.name = 'John';
+john.yearOfBirth = 1990;
+john.job = 'Teacher';
+
+var jane = Object.create(personProto, {
+    name: { value: 'Jane', },
+    yearOfBirth: { value: 1969, },
+    job: { value: 'Designer', },
+});
