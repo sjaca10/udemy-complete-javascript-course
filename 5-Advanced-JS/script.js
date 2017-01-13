@@ -40,7 +40,11 @@ console.log(jane.lastName);
 console.log(mark.lastName);
 */
 
-// Object.create Build and object that inherits directly from the one that
+///////////////////
+// Object.create //
+///////////////////
+
+// Build and object that inherits directly from the one that
 // we passed into the first argument, helps to build complex inheritance structures
 // because it allows to directly specifiy which object should be a prototype
 /*
@@ -64,8 +68,10 @@ var jane = Object.create(personProto, {
 });
 */
 
-// Primitives vs objects
-
+///////////////////////////
+// Primitives vs objects //
+///////////////////////////
+/*
 // Primitives (every primitive variable holds its own value)
 var a = 23;
 var b = a;
@@ -100,3 +106,44 @@ function change(a, b) {
 change(age, obj1);
 console.log(age);
 console.log(obj1);
+*/
+
+/////////////////////////////////////////////
+// Lecture: Passing functions as arguments //
+/////////////////////////////////////////////
+
+// JavaScript is first-class functions
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+    var arrRes = [];
+    for(var i = 0; i < arr.length; i++) {
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+function calculateAge(yearOfBirth) {
+    return new Date().getFullYear() - yearOfBirth;
+}
+
+function isFulAge(years) {
+    return years >= 18;
+}
+
+function maxHeartRate(age) {
+    if (age >= 18 && age <= 81) {
+        return Math.round(206.9 - (0.67 * age));
+    } else {
+        return -1;
+    }
+}
+
+var ages = arrayCalc(years, calculateAge);
+var fullAges = arrayCalc(ages, isFulAge);
+var rates = arrayCalc(ages, maxHeartRate);
+
+console.log(ages);
+console.log(fullAges);
+console.log(rates);
