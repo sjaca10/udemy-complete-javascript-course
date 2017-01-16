@@ -4,7 +4,7 @@
 // Lecture: variables //
 ////////////////////////
 /*
-var name = 'John'; 
+var name = 'John';
 console.log(name);
 
 var lastName = 'Smith';
@@ -229,7 +229,7 @@ console.log(ageMary);
 function yearsUntilRetirement(name, yearOfBirth) {
     var age = calculateAge(yearOfBirth);
     var retirement = 65 - age;
-    
+
     if (retirement >= 0) {
         console.log(name + ' retires in ' + retirement + ' years.');
     } else {
@@ -435,7 +435,7 @@ while(i < names.length) {
 
 for (var i = 0; i <= 5; i++) {
     console.log(i);
-    
+
     if (i === 3) {
         break;
     }
@@ -445,7 +445,7 @@ for (var i = 0; i <= 5; i++) {
     if (i === 3) {
         continue;
     }
-    
+
     console.log(i);
 }
 */
@@ -477,7 +477,7 @@ array methods.
 
 function calculateAge(yearOfBirth) {
     return new Date().getFullYear() - yearOfBirth;
-} 
+}
 
 function calculateAges(yearsOfBirth) {
     var result = [];

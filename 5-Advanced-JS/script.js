@@ -212,7 +212,7 @@ game();
 ///////////////////////
 // Lecture: closures //
 ///////////////////////
-
+/*
 function retirement (retirementAge) {
     var a = ' years left until retirement.'
     return function (yearOfBirth) {
@@ -248,3 +248,75 @@ function interviewQuestion (job) {
 interviewQuestion('designer')('John');
 interviewQuestion('teacher')('Mike');
 interviewQuestion('other')('Jane');
+*/
+
+////////////////////////////////
+// Lecture: bind, call, apply //
+////////////////////////////////
+
+// Allos to call a function and set the this variable manually
+
+var john = {
+    name: 'John',
+    age: 26,
+    job: 'Teacher',
+    presentation: function (style, timeOfDay) {
+        if (style === 'formal') {
+            console.log('Good ' + timeOfDay + ', ladies and gentlemen! I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old.')
+        } else if (style === 'friendly') {
+            console.log('Hey! What\'s up? I\'m ' + this.name + ', I\'m a ' + this.job + ' and I\'m ' + this.age + ' years old. Have a nice ' + timeOfDay + '.');
+        }
+    }
+};
+
+var emily = {
+    name: 'Emily',
+    age: 35,
+    job: 'designer',
+};
+
+john.presentation('formal', 'morning');
+
+john.presentation.call(emily, 'friendly', 'afternoon'); // method borrowing
+
+// Difference between apply and call method is that apply
+// method accept an array as parameter
+// john.presentation.apply(emily, ['friendly', 'afternoon']);
+
+// Bind method does not call inmediatly the function, first generate a copy
+// of the method then call the method
+
+var johnFriendly = john.presentation.bind(john, 'friendly'); // Carryer create a function based
+                                                             // in another function with a base
+                                                             // parameters
+johnFriendly('morning');
+johnFriendly('night');
+
+var emilyFormal = john.presentation.bind(emily, 'formal');
+emilyFormal('morning');
+emilyFormal('night');
+
+// Real example
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+    var arrRes = [];
+    for(var i = 0; i < arr.length; i++) {
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+function calculateAge(yearOfBirth) {
+    return new Date().getFullYear() - yearOfBirth;
+}
+
+function isFullAge(limit, years) {
+    return years >= limit;
+}
+
+var ages = arrayCalc(years, calculateAge);
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+console.log(ages);
+console.log(fullJapan);
