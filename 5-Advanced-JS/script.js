@@ -152,7 +152,7 @@ console.log(rates);
 ////////////////////////////////////////////
 // Lecture: functions returning functions //
 ////////////////////////////////////////////
-
+/*
 function interviewQuestion (job) {
     if (job === 'designer') {
         return function(name) {
@@ -179,3 +179,31 @@ designerQuestion('Mark');
 designerQuestion('Mike');
 
 interviewQuestion('teacher')('Mark');
+*/
+
+///////////////////
+// Lecture: IIFE //
+///////////////////
+/*
+// Normal function declaration and calling the function
+function game() {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+}
+
+game();
+*/
+
+// IIFE pattern. Parses understand this function declartion as expression and
+// calling the function
+(function () {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})();
+
+// console.log(score); Scope is private, ReferenceError
+
+(function (goodLuck) {
+    var score = Math.random() * 10;
+    console.log(score >= 5);
+})(3);
